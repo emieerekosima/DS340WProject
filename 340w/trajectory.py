@@ -25,11 +25,11 @@ traindata = pd.concat(traindatalist, ignore_index=True)
 column_names = ['timestamp', 'object_id', 'object_type', 'position_x', 'position_y', 'position_z', 'object_length', 'object_width', 'object_height', 'heading']
 traindata.columns = column_names
 traindata['object_type'] = traindata['object_type'].astype(int)
-print(traindata.columns)
+# print(traindata.shape)
 
 testdata = pd.read_csv(testdata, sep='\s+', header=None)
 testdata.columns = column_names
-print(testdata.columns)
+# print(testdata.shape)
 # Features and target
 features = ['position_x', 'position_y', 'heading', 'object_length', 'object_width', 'object_height',]
 target = 'object_type'
@@ -66,7 +66,7 @@ confusion = confusion_matrix(ytest, y_pred)
 
 # Plot the confusion matrix
 plt.figure(figsize=(8, 6))
-sns.heatmap(confusion, annot=True, fmt='d', cmap='Blues', xticklabels=[1, 2, 3, 4], yticklabels=[1, 2, 3, 4])
+sns.heatmap(confusion, annot=True, fmt='d', cmap='Blues', xticklabels=[1, 2, 3, 4, 5], yticklabels=[1, 2, 3, 4, 5])
 plt.xlabel('Predicted Labels')
 plt.ylabel('True Labels')
 plt.title('Confusion Matrix')
